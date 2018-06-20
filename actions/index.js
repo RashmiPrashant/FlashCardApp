@@ -8,7 +8,7 @@ export function loadDeck(decks){
         decks
     }
 }
-
+    
 export function addNewDeck(){
     return{
         type:ADD_NEW_DECK,

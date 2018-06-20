@@ -7,10 +7,7 @@ import {
 
         switch (action.type){
             case LOAD_DECK:
-            return {
-                ...state,  
-                decks: action.decks
-              }
+                return action.decks
             case ADD_NEW_DECK:
                 return state
             case ADD_NEW_CARD:

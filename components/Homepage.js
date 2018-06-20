@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { View, TouchableOpacity, Text, StyleSheet, Platform, StatusBar} from 'react-native';
 import { Ionicons } from '@expo/vector-icons'
 import DateHeader from './DateHeader'
@@ -16,11 +16,24 @@ class Homepage extends React.Component {
  	} 
         
     render() {
-        console.log("props" , this.props)
+        //console.log("props" , this.props)
         const { decks , navigation } = this.props;
         return (
             <View>
-            <DateHeader date={(new Date()).toLocaleDateString()}/>
+              <DateHeader date={(new Date()).toLocaleDateString()}/>
+              {Object.keys(decks).map(deck =>{
+               const { title , questions } = decks[deck]
+               console.log("title" , title)
+               return(
+                 <View>
+                   <Text>{title}</Text>
+                   <Text>{questions.length}</Text>
+                 </View>
+               )
+                 
+                })
+              }
+              
             </View>
 
         )

@@ -31,9 +31,14 @@ const decks_data = {
 export function setInitialDecks(){
   AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(decks_data));
   return decks_data
-}  
+} 
 
 export function getDecks() {
-    return AsyncStorage.getItem(STORAGE_KEY).then(setInitialDecks())
-}
-
+  return AsyncStorage.getItem(STORAGE_KEY).then(results => {
+    if (!results) {
+      setInitialDecks()
+    } else {
+      return JSON.parse(results);
+    }
+  });
+};
